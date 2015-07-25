@@ -1,6 +1,8 @@
 
+*This repository forks ```jjallaire/sigma``` and adds backwardreporting of javascript events  ```overNode``` and ```clickNode``` to r-server when using shiny apps. I updated the example below and the example in ```inst/examples/edisapora-shiny.R``` to reflect this functionality.*
 
 ### sigma
+
 
 An R package with an interface to the [sigma.js](http://sigmajs.org) graph visualization library.
 
@@ -11,7 +13,7 @@ This package is intended as a simple demonstration of building R bindings to Jav
 You can install the **sigma** package from GitHub as follows:
 
 ```r
-devtools::install_github("jjallaire/sigma")
+devtools::install_github("supersambo/sigma")
 ```
 
 #### Usage
@@ -32,17 +34,34 @@ library(sigma)
 gexf <- system.file("examples/ediaspora.gexf.xml", package = "sigma")
 
 ui = shinyUI(fluidPage(
-  checkboxInput("drawEdges", "Draw Edges", value = TRUE),
-  checkboxInput("drawNodes", "Draw Nodes", value = TRUE),
-  sigmaOutput('sigma')
+sidebarPanel(
+checkboxInput("drawEdges", "Draw Edges", value = TRUE),
+checkboxInput("drawNodes", "Draw Nodes", value = TRUE),
+
+textOutput("clickNode"),
+textOutput("overNode")
+),
+mainPanel(
+sigmaOutput('sigma')
+)
 ))
 
 server = function(input, output) {
-  output$sigma <- renderSigma(
-    sigma(gexf, 
-          drawEdges = input$drawEdges, 
-          drawNodes = input$drawNodes)
-  )
+
+output$clickNode <- renderText({ 
+paste("clickNode:",input$clickNode)
+})
+
+output$overNode <- renderText({ 
+paste("overNode:",input$overNode)
+})
+
+
+output$sigma <- renderSigma(
+sigma(gexf, 
+drawEdges = input$drawEdges, 
+drawNodes = input$drawNodes)
+)
 }
 
 shinyApp(ui = ui, server = server)
