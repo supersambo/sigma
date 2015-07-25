@@ -5,3 +5,4 @@ dependencies:
     script: 
       - sigma.min.js
       - plugins/sigma.parsers.gexf.min.js
+      - plugins/sigma.misc.bindEvents.js
