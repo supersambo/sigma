@@ -44,15 +44,6 @@ HTMLWidgets.widget({
       Shiny.onInputChange("overNode", e.data.node.label);
     });
 
-    instance.sig.bind('doubleClickNode', function(e) {
-      Shiny.onInputChange("doubleClickNode", e.data.node.label);
-    });
-
-    instance.sig.bind('rightClickNode', function(e) {
-      Shiny.onInputChange("rightClickNode", e.data.node.label);
-    });
-
-
 
 
 
