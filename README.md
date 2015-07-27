@@ -1,4 +1,4 @@
-*This is a fork of "jjalaire/sigms" I added backwardreporting of javascript events overNode and clickNode to r-server when using shiny apps. The currently clicked or hovered Nodes are accessible within R as input variables input$clickNode and input$overNode respectively.
+*This is a fork of "jjalaire/sigma" I added backwardreporting of javascript events overNode and clickNode to r-server when using shiny apps. The currently clicked or hovered Nodes are accessible within R as input variables input$clickNode and input$overNode respectively.
 I also updated the shiny example inst/examples/edisapora-shiny.R to reflect this functionality.*
 
 
@@ -14,7 +14,7 @@ This package is intended as a simple demonstration of building R bindings to Jav
 You can install the **sigma** package from GitHub as follows:
 
 ```r
-devtools::install_github("jjallaire/sigma")
+devtools::install_github("supersambo/sigma")
 ```
 
 #### Usage
