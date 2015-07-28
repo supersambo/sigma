@@ -1,4 +1,5 @@
 *This is a fork of "jjalaire/sigma" I added backwardreporting of javascript events overNode and clickNode to r-server when using shiny apps. The currently clicked or hovered Nodes are accessible within R as input variables input$clickNode and input$overNode respectively.
+Additionally the lasso plugin from "linkourious" is implemented and can be activated by hitting alt+l. The selected nodes are then made availible to shiny Server as input$selection
 I also updated the shiny example inst/examples/edisapora-shiny.R to reflect this functionality.*
 
 
